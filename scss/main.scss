@@ -1,0 +1,169 @@
+//colors
+$purple-100:#c4c6ff;
+$purple-200:#a2a5fc;
+$purple-300:#8888fc;
+$purple-400:#7069fa;
+$purple-500:#5d55fa;
+$purple-600:#4d3df7;
+$purple-700:#3525e6;
+$purple-800:#1d0ebe;
+$purple-900:#0c008c;
+
+$purple:$purple-500;
+
+$primary: $purple;
+
+$gray-100:#f0f4f8;
+$gray-200:#d9e2ec;
+$gray-300:#bcccdc;
+$gray-400:#9fb3c8;
+$gray-500:#829ab1;
+$gray-600:#627d98;
+$gray-700:#486581;
+$gray-800:#334e68;
+$gray-900:#243b53;
+
+$gray: $gray-500;
+
+$secondary: $gray;
+//spacers
+//可最多达到p-16
+$spacer: 1rem ;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer * .75,
+  4: $spacer,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 3,
+  8: $spacer * 4,
+  9: $spacer * 6,
+  10: $spacer * 8,
+  11: $spacer * 12,
+  12: $spacer * 16,
+  13: $spacer * 24,
+  14: $spacer * 32,
+  15: $spacer * 40,
+  16: $spacer * 48,
+) ;
+
+//font-size
+$font-size-base:              1rem;
+$h1-font-size:                $font-size-base * 3 ;
+$h2-font-size:                $font-size-base * 2 ;
+$h3-font-size:                $font-size-base * 1.5 ;
+$h4-font-size:                $font-size-base * 1.25 ;
+$h5-font-size:                $font-size-base * 1.125 ;
+$h6-font-size:                $font-size-base ;
+$h7-font-size:                $font-size-base * 0.875;
+$h8-font-size:                $font-size-base * 0.75;
+// scss-docs-end font-variables
+
+// scss-docs-start font-sizes
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: $h7-font-size,
+  8: $h8-font-size
+) ;
+
+//accrodion
+$accordion-icon-width:                    2rem ;
+$accordion-icon-color:                    $secondary ;
+$accordion-icon-active-color:             $primary ;
+$accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color}' stroke-linecap='round' stroke-linejoin='round'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/><path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4'/></svg>") ;
+$accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color}' stroke-linecap='round' stroke-linejoin='round'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/>  <path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8'/></svg>") ;
+
+//gradient
+$gradient: linear-gradient(to right, rgba($primary,0.95),rgba($purple-300,0.95)) ;
+
+.heading-line{
+  &::before{
+    content: "";
+    width: 10rem;
+    height: 0.2rem;
+    display: block;
+    margin: 0 auto;
+    background-color: $secondary;
+  }
+
+  &::after{
+    content: "";
+    width: 2rem;
+    padding-top: 0.5rem;
+    height: 0.2rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    background-color: $primary;
+  }
+}
+
+//滑动阻尼
+//.scrollbox1{
+  //position: relative;
+
+ //flex-direction: column;
+  //align-items: center;
+  //width: 100%;
+  //flex-shrink:0;
+  //transition:0.15s ease;
+//}
+//.viewbox1{
+ // position: fixed;
+  //top: 0;
+
+ // align-items: flex-start;
+  //width: 100%;
+ // height: 100vh;
+//}
+
+//滑动光标
+.cursor_slide{
+  z-index: 9999;
+  position: fixed;
+  width:30px;
+  height: 30px;
+  border: 1px solid $gray-300;
+  background-color: $gray-400;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .2s;
+  opacity: 0.5; // 添加这行以设置透明度为50%
+}
+.cursor_slide2{
+  z-index: 9999;
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: $gray-600;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: .1s;
+}
+
+/*悬停效果
+.container_1:hover ~ .cursor_slide{
+  transform: translate(-50%, -50%); scale: (1.5);
+  background-color: #c6c6c6;
+  opacity: .5;
+}
+
+.container_1:hover ~ .cursor_slide2{
+  opacity: 0;
+}
+*/
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss"
