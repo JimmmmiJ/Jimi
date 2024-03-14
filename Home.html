@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+    <style>
+
+        .background_2 {
+            background-image: url("西安.jpg");
+            background-size: cover;
+            background-position: 40% 40%;
+            height: 150vh;
+            font: 900 39rem '';
+            line-height: 30vh;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .background_2::before {
+            content: '';
+            background-size: cover;
+            background-image: inherit;
+            background-position: 40% 40%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            letter-spacing: 10px;
+            color: black;
+            z-index: 100;
+        }
+
+        .background_2 span {
+            font-size: 200px; /* 调整滚动视差中的文字大小 */
+            z-index: 100;
+        }
+
+        .start-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0px 8px 15px rgba(173, 216, 230, 0.2); /* 添加淡色系的阴影 */
+}
+
+.start-button:hover {
+    color: black;
+    box-shadow: 0px 15px 20px rgba(173, 216, 230, 0.4); /* 鼠标悬停时的阴影 */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+
+.start-button:active {
+    animation: bounce 1s;
+}
+
+@keyframes colorChange {
+    0% {background: #a8f0b5;}
+    50% {background: #e0f9ff;}
+    100% {background: #a8f0b5;}
+}
+
+.start-button {
+    animation: colorChange 2s infinite;
+}
+    </style>
+</head>
+
+<body>
+    <h1>AFMU iGEM 2024</h1>
+<div class="background_2"><span>AFMU iGEM 2024</span></div>
+<a href="guide.html" target="_blank"><button class="start-button" style="color: blue;">开始</button></a>
+
+<script>
+    const background = document.querySelector(".background_2")
+
+    document.addEventListener('scroll', () => {
+        const scrollY = window.scrollY
+
+        if (scrollY !== 0) {
+            background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+        }else{
+            background.style.backgroundPosition = ''
+        }
+    })
+</script>
+</body>
+</html>
